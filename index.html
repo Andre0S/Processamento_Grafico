@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Teste PG</title>
+</head>
+<body>
+    <input type="file" id="objInput" accept=".byu" hidden/>
+    <input type="file" id="camInput" accept=".cfg" hidden/>
+    <div class="btns-group" style="width:400px">
+        <div class="btns-load" style="width:100%">
+            <button id="btn_obj" style="width:50%">Object File</button>
+            <button id="btn_cam" style="width:50%">Camera File</button>
+        </div>
+        <button id="btn_start" style="width:100%">Just Do It!</button>
+    </div>
+    <div id="container">
+        <canvas id="canvas" width="fill" height="fill"></canvas>
+    </div>
+    <script type="text/javascript" src="Project.js"></script>
+</body>
+</html>
