@@ -94,7 +94,6 @@ function isInsideScreen() {
             }
         }
         pointsToBe[i].isInScreen = returner;
-        //ctx.fillText(pointsToBe[i].x + " " +pointsToBe[i].y + " " +pointsToBe[i].z + " " +pointsToBe[i].isInScreen,10,140 + (i*20));
     }
 }
 
@@ -135,7 +134,6 @@ function flatToScreenPoint() {
         pointsToBe[i].x = distanceD;
         pointsToBe[i].y = relativeHeight;
         pointsToBe[i].z = relativeWidth;
-        //ctx.fillText(pointsToBe[i].x + " " +pointsToBe[i].y + " " +pointsToBe[i].z + " " +pointsToBe[i].isInScreen,10,140 + (i*10));
     }
 }
 
@@ -225,7 +223,6 @@ btn_start.onclick = function doTheThing() {
     halfHeight = parseFloat(camera[11]);
     horizontalCanvas = Math.ceil((verticalCanvas/(halfHeight*2))*(halfWidth*2));
     resizeCanvas(horizontalCanvas,verticalCanvas);
-    //resizeCanvas(horizontalCanvas,30000);
     verticalVector = ortogonalize(verticalVector,aimVector);
     horizontalVector = crossProductVector(aimVector,verticalVector);
     normalize(aimVector);
@@ -241,16 +238,13 @@ btn_start.onclick = function doTheThing() {
             auxiliarString += object.charAt(i);
             aux.push(auxiliarString);
             numberTruth = false;
-            //ctx.fillText(auxiliarString,10,140 + (aux.length*20));
         } else if (i == object.length -1 && numberTruth && (object.charAt(i) == "\n" || object.charAt(i) == " ")) {
             aux.push(auxiliarString);
             numberTruth = false;
-            //ctx.fillText(auxiliarString,10,140 + (aux.length*20));
         } else if (i == object.length -1 && !numberTruth && (object.charAt(i) != "\n" && object.charAt(i) != " ")) {
             auxiliarString = object.charAt(i);
             aux.push(auxiliarString);
             numberTruth = false;
-            //ctx.fillText(auxiliarString,10,140 + (aux.length*20));
         } else if (i == object.length -1 && !numberTruth && (object.charAt(i) == "\n" || object.charAt(i) == " ")) {
             numberTruth = false;
         } else if (i < object.length -1 && numberTruth && (object.charAt(i) != "\n" && object.charAt(i) != " ")) {
@@ -259,7 +253,6 @@ btn_start.onclick = function doTheThing() {
         } else if (i < object.length -1 && numberTruth && (object.charAt(i) == "\n" || object.charAt(i) == " ")) {
             aux.push(auxiliarString);
             numberTruth = false;
-            //ctx.fillText(auxiliarString,10,140 + (aux.length*20));
         } else if (i < object.length -1 && !numberTruth && (object.charAt(i) != "\n" && object.charAt(i) != " ")) {
             auxiliarString = object.charAt(i);
             numberTruth = true;
@@ -289,7 +282,6 @@ btn_start.onclick = function doTheThing() {
         pointsToBe[i].x = x;
         pointsToBe[i].y = y;
         pointsToBe[i].z = z;
-        //ctx.fillText(pointsToBe[i].x+"  "+pointsToBe[i].y+"  "+pointsToBe[i].z,10,10 + (i*10));
     }
     //isInsideScreen();
     //isTriangleInScreen();
