@@ -135,7 +135,7 @@ function flatToScreenPoint() {
         pointsToBe[i].x = distanceD;
         pointsToBe[i].y = relativeHeight;
         pointsToBe[i].z = relativeWidth;
-        ctx.fillText(pointsToBe[i].x + " " +pointsToBe[i].y + " " +pointsToBe[i].z + " " +pointsToBe[i].isInScreen,10,140 + (i*10));
+        //ctx.fillText(pointsToBe[i].x + " " +pointsToBe[i].y + " " +pointsToBe[i].z + " " +pointsToBe[i].isInScreen,10,140 + (i*10));
     }
 }
 
@@ -150,12 +150,12 @@ function drawTriangles() {
     let thirdY =0;
     let proportion = verticalCanvas/(halfHeight*2);
     for (let i = trianglesToDisplay.length - 1; i > -1; i--) {
-        firstY = Math.ceil(proportion * (halfHeight - Math.ceil(pointsToBe[trianglesToDisplay[i].first].y))) ;
-        firstX = Math.ceil(proportion * (halfWidth + Math.ceil(pointsToBe[trianglesToDisplay[i].first].z))) ;
-        secondY = Math.ceil(proportion * (halfHeight - Math.ceil(pointsToBe[trianglesToDisplay[i].second].y))) ;
-        secondX = Math.ceil(proportion * (halfWidth + Math.ceil(pointsToBe[trianglesToDisplay[i].second].z))) ;
-        thirdY = Math.ceil(proportion * (halfHeight - Math.ceil(pointsToBe[trianglesToDisplay[i].third].y)));
-        thirdX = Math.ceil(proportion * (halfWidth + Math.ceil(pointsToBe[trianglesToDisplay[i].third].z))) ;
+        firstY = Math.ceil(proportion * (halfHeight - pointsToBe[trianglesToDisplay[i].first].y)) ;
+        firstX = Math.ceil(proportion * (halfWidth + pointsToBe[trianglesToDisplay[i].first].z)) ;
+        secondY = Math.ceil(proportion * (halfHeight - pointsToBe[trianglesToDisplay[i].second].y)) ;
+        secondX = Math.ceil(proportion * (halfWidth + pointsToBe[trianglesToDisplay[i].second].z)) ;
+        thirdY = Math.ceil(proportion * (halfHeight - pointsToBe[trianglesToDisplay[i].third].y));
+        thirdX = Math.ceil(proportion * (halfWidth + pointsToBe[trianglesToDisplay[i].third].z)) ;
         ctx.beginPath();
         ctx.moveTo(firstX,firstY);
         ctx.lineTo(secondX,secondY);
@@ -225,6 +225,7 @@ btn_start.onclick = function doTheThing() {
     halfHeight = parseFloat(camera[11]);
     horizontalCanvas = Math.ceil((verticalCanvas/(halfHeight*2))*(halfWidth*2));
     resizeCanvas(horizontalCanvas,verticalCanvas);
+    //resizeCanvas(horizontalCanvas,30000);
     verticalVector = ortogonalize(verticalVector,aimVector);
     horizontalVector = crossProductVector(aimVector,verticalVector);
     normalize(aimVector);
@@ -288,6 +289,7 @@ btn_start.onclick = function doTheThing() {
         pointsToBe[i].x = x;
         pointsToBe[i].y = y;
         pointsToBe[i].z = z;
+        //ctx.fillText(pointsToBe[i].x+"  "+pointsToBe[i].y+"  "+pointsToBe[i].z,10,10 + (i*10));
     }
     //isInsideScreen();
     //isTriangleInScreen();
